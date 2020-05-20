@@ -3,7 +3,8 @@
 in vec3 FragPos;
 in vec3 Normal1;
 out vec4 colour;
-
+uniform sampler2D tex;
+uniform sampler2D normalMap; 
 
 vec3 ADSLightModel( in vec3 myNormal, in vec3 myPosition )
 {
@@ -37,8 +38,12 @@ vec3 ADSLightModel( in vec3 myNormal, in vec3 myPosition )
 
 void main()
 {
+//	vec3 Normal = texture(normalMap, TextCoord ).rgb;
+//	Normal = normalize(Normal*2-1);
+//	Normal = normalize(TBN*Normal);
 
 	vec4 finalColour = vec4(ADSLightModel(Normal1,FragPos),1.0f);
+	//vec4 finalColour = vec4(ADSLightModel(Normal1,FragPos),1.0f);
 	
 	colour =  finalColour;
 }
