@@ -19,6 +19,7 @@ void main()
 {
 	gl_Position = projection * view * model * vec4(pos, 1.0);
 <<<<<<< HEAD
+<<<<<<< HEAD
 	TexCoord = tex;
 	
 	vec3 T = normalize(vec3(model * vec4(tangent, 0.0)));
@@ -28,6 +29,8 @@ void main()
 	TBN = mat3(T, B, norm);
 	norm1 = norm;
 =======
+=======
+>>>>>>> e5d59482f5e9fc223dbf5afd40f8c2f2d45ea842
 //	vec3 T = normalize(vec3(model * vec4(tangent, 0.0)));
 //	vec3 N = normalize(vec3(model * vec4(norm, 0.0)));	
 //	T = normalize (T-dot(T,N)*N);
