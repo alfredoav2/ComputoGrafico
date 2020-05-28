@@ -54,7 +54,7 @@ void Menu::Init()
 	shaderManager->LoadShaders("gouraud-shader", "Assets/Shaders/gouraud-shader.vert", "Assets/Shaders/gouraud-shader.frag");
 	shaderManager->LoadShaders("phong-shader", "Assets/Shaders/phong-shader.vert", "Assets/Shaders/phong-shader.frag");
 	shaderManager->LoadShaders("toon-shader", "Assets/Shaders/toon-shader.vert", "Assets/Shaders/toon-shader.frag");
-		
+	
 	LoadModels();
 	weapon = new Model();
 	weapon->LoadModel("Assets/Models/pina_pose.obj");
@@ -76,13 +76,42 @@ void Menu::Init()
 
 void Menu::LoadModels()
 {
+
+	//unsigned int indices2[] = {
+	//			0,1,2,
+	//			2,3,0,
+	//			0,4,3,
+	//			4,7,3,
+	//			3,7,6,
+	//			6,3,2
+	//};
+
+	//GLfloat vertices2[] = {
+	//		// front
+	//	-1.0, -1.0,  1.0, 0.0f, 0.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//0
+	//	1.0, -1.0,  1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//1
+	//	1.0,  1.0,  1.0,1.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//2
+	//	-1.0,  1.0,  1.0,0.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//3
+	//	// back
+	//	-1.0, -1.0, -1.0,1.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//4
+	//	1.0, -1.0, -1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//5
+	//	1.0,  1.0, -1.0,1.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//6
+	//	-1.0,  1.0, -1.0,0.0f, 1.0f,		0.7f, -0.7f, 0.0f,1.0f, 0.0f, 0.0f,//7
+	//};
+	//calcAverageNormals(indices2, 18, vertices2, 88, 11, 5);
+	//Mesh* obj2 = new Mesh();
+	//obj2->CreateMesh(vertices2, indices2, 88, 18, 11);
+	//meshList.push_back(obj2);
+
+
+	//texture = new Texture("Assets/Textures/brick.png");
+	//texture->LoadTextureA();
+	//textureNormal = new Texture("Assets/Textures/bricknormal.png");
+	//textureNormal->LoadTextureA();
 	unsigned int indices[] = {
 				0,1,2,
 				2,3,0,
-				0,4,3,
-				4,7,3,
-				3,7,6,
-				6,3,2
+				
 	};
 
 	GLfloat vertices[] = {
@@ -91,15 +120,11 @@ void Menu::LoadModels()
 		1.0, -1.0,  1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//1
 		1.0,  1.0,  1.0,1.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//2
 		-1.0,  1.0,  1.0,0.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//3
-		// back
-		-1.0, -1.0, -1.0,1.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//4
-		1.0, -1.0, -1.0,1.0f, 0.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//5
-		1.0,  1.0, -1.0,1.0f, 1.0f,		0.0f, 0.0f, 0.0f,1.0f, 0.0f, 0.0f,//6
-		-1.0,  1.0, -1.0,0.0f, 1.0f,		0.7f, -0.7f, 0.0f,1.0f, 0.0f, 0.0f,//7
+		
 	};
-	calcAverageNormals(indices, 18, vertices, 88, 11, 5);
+	calcAverageNormals(indices, 6, vertices, 44, 11, 5);
 	Mesh *obj1 = new Mesh();
-	obj1->CreateMesh(vertices, indices, 88, 18, 11);
+	obj1->CreateMesh(vertices, indices, 44, 6, 11);
 	meshList.push_back(obj1);
 
 
@@ -107,6 +132,7 @@ void Menu::LoadModels()
 	texture->LoadTextureA();
 	textureNormal = new Texture("Assets/Textures/bricknormal.png");
 	textureNormal->LoadTextureA();
+
 
 }
 void Menu::LoadShaders()
@@ -147,8 +173,8 @@ void Menu::Draw()
 
 	shaderManager->Activate("phong-shader");
 	shaderManager->draw();
-	transform.SetTranslation(0.0f, 0.0f, 0.0f);
-	transform.SetScale(1.1f, 1.1f, 1.11f);
+	transform.SetTranslation(2.0f, -0.2f, 0.0f);
+	transform.SetScale(0.05f, 0.05f, 0.05f);
 	transform.SetRotation(0, 0, 0);
 	weapon->SetTransform(&transform);
 	weapon->Draw();
