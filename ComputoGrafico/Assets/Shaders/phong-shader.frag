@@ -45,20 +45,25 @@ vec3 ADSLightModel( in vec3 myNormal, in vec3 myPosition )
 
 void main()
 {
+<<<<<<< HEAD
 //	vec3 Normal = texture(normalMap, TextCoord ).rgb;
 //	Normal = normalize(Normal*2-1);
 //	Normal = normalize(TBN*Normal);
 
 <<<<<<< HEAD
+=======
+>>>>>>> 0c57c54d27efc96c4bb102c1b74bd8fb32d1bc8b
     vec3 Normal = texture(normalMap, TexCoord).rgb;
     Normal = normalize(Normal*2-1);  
 	Normal = normalize(TBN * Normal); 
-
 	vec4 finalColour = vec4(ADSLightModel(Normal,FragPos),1.0f);
+<<<<<<< HEAD
 =======
 	vec4 finalColour = vec4(ADSLightModel(Normal1,FragPos),1.0f);
 	//vec4 finalColour = vec4(ADSLightModel(Normal1,FragPos),1.0f);
 >>>>>>> l
 	
+=======
+>>>>>>> 0c57c54d27efc96c4bb102c1b74bd8fb32d1bc8b
 	colour =  texture(tex, TexCoord)*finalColour;
 }
