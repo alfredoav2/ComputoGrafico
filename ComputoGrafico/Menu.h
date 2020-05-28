@@ -5,7 +5,9 @@
 #include "CGE/Graphic/Shader.h"
 #include "CGE/Base/ShaderManager.h"
 #include "CGE/Graphic/Model.h"
+#include "CGE/Graphic/Skybox.h"
 #include<vector>
+
 class Menu : public GameState
 {
 private:
@@ -21,6 +23,7 @@ private:
 	float angle;
 	Model* weapon;
 	Transform transform;
+	Skybox *skybox;
 public:
 	Menu();
 	~Menu();

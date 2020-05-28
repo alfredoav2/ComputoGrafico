@@ -63,6 +63,15 @@ void Menu::Init()
 
 	srand(time(NULL));
 	angle = 0;
+
+	std::vector<std::string> skyboxFaces;
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_rt.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_lf.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_up.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_dn.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_bk.tga");
+	skyboxFaces.push_back("Assets/Textures/Skybox/cupertin-lake_ft.tga");
+	skybox = new Skybox(skyboxFaces);
 }
 
 void Menu::LoadModels()
@@ -134,6 +143,8 @@ void Menu::LoadShaders()
 void Menu::Draw()
 {
 	platform->RenderClear();
+	skybox->Draw(shaderManager->GetViewMatrix(), shaderManager->GetProjectionMatrix());
+
 	shaderManager->Activate("phong-shader");
 	shaderManager->draw();
 	glm::mat4 model(1);

@@ -136,6 +136,7 @@
     <ClCompile Include="CGE\Graphic\Mesh.cpp" />
     <ClCompile Include="CGE\Graphic\Model.cpp" />
     <ClCompile Include="CGE\Graphic\Shader.cpp" />
+    <ClCompile Include="CGE\Graphic\Skybox.cpp" />
     <ClCompile Include="CGE\Graphic\Texture.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="CGE\Graphic\Mesh.h" />
     <ClInclude Include="CGE\Graphic\Model.h" />
     <ClInclude Include="CGE\Graphic\Shader.h" />
+    <ClInclude Include="CGE\Graphic\Skybox.h" />
     <ClInclude Include="CGE\Graphic\Texture.h" />
     <ClInclude Include="Menu.h" />
   </ItemGroup>
@@ -163,6 +165,8 @@
     <None Include="Assets\Shaders\OneColor.vert" />
     <None Include="Assets\Shaders\phong-shader.frag" />
     <None Include="Assets\Shaders\phong-shader.vert" />
+    <None Include="Assets\Shaders\skybox.frag" />
+    <None Include="Assets\Shaders\skybox.vert" />
     <None Include="Assets\Shaders\toon-shader.frag" />
     <None Include="Assets\Shaders\toon-shader.vert" />
   </ItemGroup>
